@@ -1,65 +1,138 @@
 <html>
-  <head>
-    <title>Your Name</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/css/mdb.min.css" rel="stylesheet">
-  </head>
-  <body class="blue-grey lighten-5 pt-5">
-    <div class="container mt-5 align-items-center">
-        <div class="row align-items-center">
-            <div class="col-md-3 text-center">
-                <img src="https://avatars2.githubusercontent.com/u/10599101?s=460&v=4" alt="" class="img-fluid rounded-circle" style="width: 20vh;" srcset="">
-                <br><br>
-                <h3><b>Vrijraj Singh</b></h3>
-                <p class="text-muted">Rajasthan, India</p>
-            </div>
-            <div class="col-md-9 col-12">
-                <h1 style="font-weight: 350;color: #3c4043;" class="display-5"><b>Hello World!..</b></h1>
-                <h4><b>This is my Website</b></h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi vel reprehenderit dolor expedita enim accusantium maiores neque commodi reiciendis? Suscipit neque explicabo ab odio! In pariatur quasi aliquid nesciunt quae.</p>
-
-                <a href="mailto:vrijraj2396@gmail.com" class="btn btn-pink m-0 btn-md"><i class="fa fa-check" aria-hidden="true"></i>&nbsp; YES, I'M AVAILABLE FOR HIRE</a>
-                <br><br><br>
-         
-                <h5><b>Technical Skills</b></h5>
-                <p>JavaScript, Google Cloud Platform, Angular</p>
+    <head>
+        <title>
+            Dhruv's Page
+        </title>
+        <style>
+            .body{
+                background-color:aquamarine;
+                border-radius: 50px;
+                width: 700px;
                 
-                <br>
+            }
+            .name{
+                background-color:royalblue;
+                width: 550px;
+                border-radius: 20px;
+                padding: 7px 7px;
+                align-content: center;
+            }
+            .year{
+                margin-top: 10px;
+                font-size: 80px;
+                background-color: violet;
+                color:black;
+                border-radius: 0px;
+                margin-bottom: 10px;
+                border-radius: 50px;
+                width: 700px;
+            }
+            .month{
+                margin-top: 0px;
+                margin-bottom: 0px;
+                background-color: wheat;
+                width: 360px;
+                border-radius: 15px 15px 0px 0px;
+            }
+            .days{
+                background-color: tomato;
+                border-radius: 0px 0px;
+                width: 360px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            .num{
+                border-radius: 0px 0px 15px 15px;
+                background-color:whitesmoke;
+                width: 360px;
+                margin-top: 0px;
+                padding-bottom: 5px;
                 
-                <div>
-                    <h5><b>Follow Me</b></h5>
-                    <a href="#" target="_blank">
-                        <i class="fa fa-google-plus fa-2x" aria-hidden="true" style="color:#2E2E2E;"></i>
-                    </a>
-                    &nbsp;   &nbsp;              
-                    <a href="#" target="_blank">
-                        <i class="fa fa-facebook fa-2x" aria-hidden="true" style="color:#2E2E2E;"></i>
-                    </a>
-                    &nbsp; &nbsp; 
-                    <a href="#" target="_blank">
-                        <i class="fa fa-linkedin fa-2x" aria-hidden="true" style="color:#2E2E2E;"></i>
-                    </a>
-                    &nbsp; &nbsp; 
-                    <a href="#" target="_blank">
-                        <i class="fa fa-twitter fa-2x" aria-hidden="true" style="color:#2E2E2E;"></i>
-                    </a>
-                    &nbsp; &nbsp; 
-                    <a href="#" target="_blank">
-                        <i class="fa fa-github fa-2x" aria-hidden="true" style="color:#2E2E2E;"></i>
-                    </a>        
-                </div>
-                <br><br>
-                <p>Designed and Developed By <b><a href="https://codingurukul.com" style="color:#3c4043" target="_blank">Coding Gurukul</a></b></p>
+            }
+            span{
+                margin-top: 10px;
 
-            </div>
-        </div>
-    </div>
+            }
+        </style>
+    </head>
+    <body><center>
+        <div class="body" ><font class="name" size=60>&#128526 Dhruv's Calendar &#128526</font>
+        <script>
+            function leapchk(year){
+                if ((year % 4) == 0){
+                    if ((year % 100) == 0){
+                        if ((year % 400) == 0){
+                            lp = true;
+                        }
+                        else{
+                            lp = false;
+                        }
+                    }
+                    else{
+                        lp = true;
+                    }
+                }
+                else{
+                    lp = false;
+                }
+            return lp;
+            }
+            var month = 1;
+            var year = prompt("Enter a year between 2020 , 5000","2020");
+            if (parseInt(year)>=2020){
+            document.write("<h1 class='year'>"+year+"</h1>")
+            while(month<=12){
+                var day_start = 2;
+                for(i=2020;i<year;i++){
+                    if (leapchk(i)){
+                        day_start+=366
+                    }
+                    else{
+                        day_start+=365
+                    }
+                }
+                day_start%=7;
+                
+                var m = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                document.write("<h1 class='month'>&#128516 "+m[month-1]+"&#128516</h1>")
+                if (leapchk(year)){
+                    var days = new Array(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31) ;
 
-  
-  </body>
+                }
+                else{
+                    var days = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+                }
+                for(i=0;i<parseInt(month)-1;i++){
+                    day_start+=days[i]
+                    
+                }
+                day_start%=7;
+                var day = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+                document.write("<h1 class='days'>"+day.slice(0,7).join(" ")+"</h1><h2 class='num'>");
+                for(j=1;j<=days[parseInt(month)-1];j++){
+                    if (j==1){
+                        document.write("&nbsp".repeat((day_start*7))+"&nbsp".repeat(3)+"<span>"+j+"</span>"+"&nbsp".repeat(2));
+                    }
+                    else{
+                        if (j<=9){
+                            document.write("&nbsp".repeat(3)+"<span>"+j+"</span>"+"&nbsp".repeat(2));
+                        }
+                        else{
+                            document.write("&nbsp".repeat(2)+"<span>"+j+"</span>"+"&nbsp".repeat(1));
+                        }
+                    }
+                    if ((day_start+j)%7==0){
+                        document.write("<br>");
+                    }
+                }
+                document.write("&nbsp".repeat(7-((day_start+days[month-1])%7)).repeat(7)+"</h2>");
+            month+=1;
+            }}
+            else{
+                alert("This calender does not works for that input Yet")
+            }
+        </script>
+        2nd Feb 2020
+    </body><center>
 </html>
