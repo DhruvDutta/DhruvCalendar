@@ -1,0 +1,44 @@
+<html>
+    <head>
+
+        <title>
+            Body Mass Index Calculator
+        </title>
+    </head>
+    <body>
+        <script>
+            
+            function calc(){    
+                var Weight = document.forms[0].Weight.value;
+                var Height = document.forms[0].Height.value;
+                if(document.getElementById("Cm").checked){
+                    Height/=100;
+                    var bmi = Weight/(Height*Height);
+                    document.write("<center><img src='https://www.nursingcenter.com/getattachment/NCBlog/August-2017/Body-Mass-Index-and-Body-Surface-Area-What-s-the-D/BMI-classification.jpg.aspx' /><br><h1>"+Math.round(bmi*100,2)/100+"Kg/m<sup>2</sup></h1></center>");
+                }
+                else if(document.getElementById("foot").checked){
+                    Height/=3.281;
+                    var bmi = Weight/(Height*Height);
+                    document.write("<center><img src='https://www.nursingcenter.com/getattachment/NCBlog/August-2017/Body-Mass-Index-and-Body-Surface-Area-What-s-the-D/BMI-classification.jpg.aspx' /><br><h1>"+Math.round(bmi*100,2)/100+"Kg/m<sup>2</sup></h1></center>");
+                }
+                else{alert("Please select a unit")}
+                
+            }
+        </script>
+        <form>
+            <input type="button" value="&#8592" onclick="window.location.href = 'index.html';">
+            <center>
+                <h1>&#128516 Dhruv's BMI Calculator &#128516</h1>
+                <img src="https://www.nursingcenter.com/getattachment/NCBlog/August-2017/Body-Mass-Index-and-Body-Surface-Area-What-s-the-D/BMI-classification.jpg.aspx" /><br>
+                Weight:<br><br><input type="text" value=65 name="Weight"><br><br>
+                <br>
+                Height:<br>
+                Cm > <input type ="radio" id="Cm"  value="Cm">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                foot > <input type ="radio" id="foot"  value="foot"><br><br>
+                <input type="text" name="Height" value="180"><br><br>
+                <input type="button" Value="Get BMI" name="Get" onclick="calc()">
+            </center>
+        </form>
+    </body>
+</html>
