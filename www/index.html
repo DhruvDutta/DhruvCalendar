@@ -2,28 +2,64 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	
 	<style>
 
 		.buttons{
-			padding: 10px 100px 100px;
+			padding: 10px 10px 10px;
 		}
-		.buttons input{
+		.buttons button{
+			padding: 0px;
 			box-sizing: border-box;
-			background-color: aqua;
-			width: 130px;
-			height:auto;
+			width: 200px;
+			height:100px;
 			border-radius: 15px;
-			font-size: auto;
 			font-family: cursive;
+			background: rgba(0,0,0,0.2);
+
+		}
+		.name{
+			font-family: cursive;
+			font-size: 50px;
+			color:white;
+
+		}
+		#time{
+			border-radius: 25px;
+			width: 300px;
+			
+		}
+		#calc:hover{
+			background-image: url(calc.png);
+			background-size: cover;
+		}
+		#calen:hover{
+			background-image: url(calen.png);
+			background-size: cover;
+		}
+		
+		#fx:hover{
+			background-image: url(fx.png);
+			background-size: cover;
+		}
+		#diff:hover{
+			background-image: url(diff.png);
+			background-size: cover;
+		}
+		
+		#bmi:hover{
+			background-image: url(bmi.png);
+			background-size: cover;
 		}
 	</style>
 </head>
-<body style="background:Url(https://cdn5.vectorstock.com/i/1000x1000/71/29/blur-background-vector-2887129.jpg);background-size: 100% ;">
-	
+<body style="  background:Url(https://www.itl.cat/pngfile/big/236-2366806_minimalistic-landscape-wallpaper-1080p.jpg);background-repeat: no-repeat;background-size: cover; ">
+	<center>
+	<h1 class="name">Dhruv</h1>
 <script>
 var moon=["&#127762"]
 	for(i=127763;i<=127768;i++){
@@ -31,19 +67,91 @@ var moon=["&#127762"]
 	}
 
 	var string2= moon.join("");
-	document.write("<center style='font-size:auto;'>"+string2+"</center>");
+	document.write("<center style='font-size:auto;background: rgba(0,0,0,0.3);'>"+string2+"</center>");
+	
+	
+	
 </script>
 
-<center>
 
 <div class="buttons">
-<input type="button" value="Calculator" onclick="window.location.href = 'calculator_2.1.html';">
-<input type="button" value="Calendar" onclick="window.location.href = 'CalenderByDhruv.html';"><br>
-<input type="button" value="f(x) Calculator" onclick="window.location.href = 'f(x).html';">
-<input type="button" value="Differentiator" onclick="window.location.href = 'differentiation.html';"><br>
-<input type="button" value="BMI Calculator" onclick="window.location.href = 'bmi.html';">
+<button id="calc"onclick="window.location.href = 'calculator_2.1.html';">Calculator</button>
+<button id="calen" onclick="window.location.href = 'CalenderByDhruv.html';">Calendar</button></div><div class="buttons">
+<button id="fx" onclick="window.location.href = 'f(x).html';">f(x) Calculator</button>
+<button id="diff" onclick="window.location.href = 'differentiation.html';">Differentiator</button></div><div class="buttons">
+<button id="bmi" onclick="window.location.href = 'bmi.html';">BMI Calculator</button>
 </div>
+<div style="background: rgba(0,0,0,0.2);width: 500px;border-radius: 15px; position: relative;">
+<img src="https://www.dictionary.com/e/wp-content/uploads/2018/03/Upside-Down_Face_Emoji.png" height="90px" style="position: relative;" id="anime" /></div><br><br>
+<script>
+	var deg = 0.5;
+	var p = 0;
+	var q=1;
+	var m=-200;
+	const go_rt=function(){
+		
+		document.getElementById('anime').style.transform = "rotate("+deg+"deg)";
+		deg+=2;
+		document.getElementById('anime').style.left = p+"px";
+		p+=1;
+	}
+	const go_lt = function(){
+		
+		p=document.getElementById('anime').style.left;
+		document.getElementById('anime').style.transform = "rotate("+deg+"deg)";
+		deg-=2;
+			document.getElementById('anime').style.left=(200-q)+"px";
+			document.getElementById('anime').style.right=q+"px";
+			q+=1;
+			
+	}
+	const animation=function() {
+		if(p<200){
+			go_rt();
+		}else{
+			if(q<400){
+			go_lt();}
+			else{
+		document.getElementById('anime').style.transform = "rotate("+deg+"deg)";
+		deg+=2;
+		if(m<=0){
+		document.getElementById('anime').style.right="";
+		document.getElementById('anime').style.left = m+"px";
+		m+=1;}
+			}
+		
+		}
+	}
+	setInterval(animation,10);
+</script>
+<h1>Time</h1>
+<p id="time" style="color:wheat;"></p>
+<script>
+	function clock(){
+		var d = new Date;
+		var time1 = d.getHours()%12+":"+d.getMinutes()+":"
+		
+		if(d.getSeconds()%2==0){
+			document.getElementById('time').style="background: linear-gradient(0deg,black,blue);color:white;font-family: cursive;";
+		}else{
+			document.getElementById('time').style="background: linear-gradient(0deg,blue,black);color:white;font-family: cursive;";
 
+		}
+		if (d.getSeconds()<=9){
+			time1+="0"+d.getSeconds();
+		}else{
+			time1+=d.getSeconds();
+		}
+		if(d.getHours()>=12){
+			time1+=" PM";
+		}else{
+			time1+=" AM"
+		}
+		document.getElementById('time').innerHTML="<h1>"+time1+"</h1>";
+
+	}
+	setInterval(clock,1);
+</script>
 </center>
 </body>
 </html>
